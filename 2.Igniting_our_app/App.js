@@ -1,11 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
 const heading = React.createElement(
   "h1",
   { id: "heading" },
   "hello world from react"
 );
+
+console.log(heading); //object
 
 const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child" }, [
@@ -21,4 +20,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(parent);
 
-export default App;
+console.log(parent);
+
+//ReactElement is an object => HTML (broswer understand)
