@@ -18,7 +18,8 @@ npx parcel index.html
 
 after this command cdn links is not needed
 
-after this run npm install react
+after this
+run npm install react
 
 npm install react-dom
 
