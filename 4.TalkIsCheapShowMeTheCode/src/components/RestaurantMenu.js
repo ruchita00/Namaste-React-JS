@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { IMG_CDN_URL, LOGO_URL, swiggy_menu_api_URL } from "../Utils/constants";
+import { IMG_CDN_URL, LOGO_URL } from "../Utils/constants";
 import { MenuShimmer } from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestraurantMenu from "../Utils/useRestraurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
-  console.log(resId);
+  const resInfo = useRestraurantMenu(resId);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  // useEffect(() => {
+  //   fetchMenu();
+  // }, []);
 
-  const fetchMenu = async () => {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.923142382992081&lng=77.61762198060751&restaurantId=${resId}`
-    );
-    const json = await data.json();
-    setResInfo(json.data);
-  };
-  console.log(resInfo);
+  // const fetchMenu = async () => {
+  //   const data = await fetch(
+  //     `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.923142382992081&lng=77.61762198060751&restaurantId=${resId}`
+  //   );
+  //   const json = await data.json();
+  //   setResInfo(json.data);
+  // };
+  // console.log(resInfo);
 
   return resInfo === null ? (
     <MenuShimmer />

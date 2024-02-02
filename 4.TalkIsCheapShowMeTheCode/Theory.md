@@ -6,3 +6,11 @@
 
 - it is find out the difference between previous virtual dom and updated virtual dom 
 - 
+
+# Single Responsibilty principal:
+
+- code should be maintainable
+- testable
+- readable
+- reusable 
+- modular
