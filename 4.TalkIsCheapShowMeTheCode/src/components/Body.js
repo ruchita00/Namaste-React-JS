@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
@@ -21,10 +22,6 @@ const Body = () => {
         jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
-      console.log(
-        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
     } catch (error) {
       (error) => console.error(error);
     }
@@ -36,7 +33,6 @@ const Body = () => {
 
   //whenever the state variable update react triggers a reconciliation cycle
   //it re-render the component
-  console.log("body rendered");
 
   return (
     <div className="body-container">
@@ -68,7 +64,12 @@ const Body = () => {
       ) : (
         <div className="restaurant-list">
           {filteredRestaurant?.map((restaurant) => {
-            return <RestaurantCard key={restaurant.info.id} {...restaurant} />;
+            return (
+              <Link to={"/restaurants/" + restaurant.info.id}>
+                {" "}
+                <RestaurantCard key={restaurant.info.id} {...restaurant} />
+              </Link>
+            );
           })}
         </div>
       )}
