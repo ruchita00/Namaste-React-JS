@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LOGO_COMPANY } from "../Utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -15,12 +16,10 @@ const Header = () => {
   /**
    * 2 types of routing the web page
    * clinet side routing: only component getting interchange
-   * server side routing: 
+   * server side routing:
    */
 
-  useEffect(() => {
-    console.log("Hello useeffect coming");
-  }, [btnName]);
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -32,6 +31,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status :{onlineStatus ? <div></div> : <div></div>}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -40,6 +40,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Card</li>
           <li>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
@@ -30,6 +31,15 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1 style={{ marginTop: "100px" }}>
+        Looks like you are offline! please check your internet connection
+      </h1>
+    );
 
   //whenever the state variable update react triggers a reconciliation cycle
   //it re-render the component

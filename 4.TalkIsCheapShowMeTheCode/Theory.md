@@ -14,3 +14,13 @@
 - readable
 - reusable 
 - modular
+
+# Performace optimization
+
+- will make smaller bundler of files this process is known as 
+- chunking
+- code splitting
+- dynamic bundling 
+- lazy loading
+- on demand loading
+- dynamic import
