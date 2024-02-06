@@ -86,7 +86,7 @@ a {
 .nav-items > ul > li:hover,
 .nav-items > ul > li:hover .logout-btn,
 .nav-items > ul > li:hover .login-btn {
-  background-color: var(--light-blue);
+  background-color: var(--orange);
   border-radius: 5px;
   cursor: pointer;
   color: var(--white);

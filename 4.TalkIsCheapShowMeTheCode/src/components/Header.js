@@ -31,7 +31,6 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Online Status :{onlineStatus ? <div></div> : <div></div>}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -41,21 +40,48 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/grocery">Grocery</Link>
-          </li>
-          <li>Card</li>
+          </li> */}
           <li>
-            <button
-              onClick={() => {
-                btnName === "Login"
-                  ? setBtnName("Logout")
-                  : setBtnName("Login");
-              }}
-              className="login-btn"
-            >
-              {btnName}
-            </button>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </li>
+          <li>
+            <div style={{ display: "flex" }}>
+              <button
+                onClick={() => {
+                  btnName === "Login"
+                    ? setBtnName("Logout")
+                    : setBtnName("Login");
+                }}
+                className="login-btn"
+              >
+                {btnName}
+              </button>
+              {onlineStatus ? (
+                <div
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    background: "green",
+                    borderRadius: "50%",
+                    marginTop: "6px",
+                    marginLeft: "5px",
+                  }}
+                ></div>
+              ) : (
+                <div
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    background: "red",
+                    borderRadius: "50%",
+                    marginTop: "6px",
+                    marginLeft: "5px",
+                  }}
+                ></div>
+              )}
+            </div>
           </li>
         </ul>
       </div>
