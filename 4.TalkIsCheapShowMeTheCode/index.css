@@ -415,6 +415,18 @@ a {
   border-radius: 5px;
 }
 
+
+.clear-btn {
+  background-color: var(--text-color);
+  color: var(--body-bg-color);
+  padding: 8px 25px;
+  cursor: pointer;
+  outline: none;
+  border-color: var(--text-color);
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
 /* Restaurant Menu End Start */
 
 /*Shimmer Card CSS Start*/

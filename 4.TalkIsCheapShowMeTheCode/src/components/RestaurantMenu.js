@@ -2,10 +2,19 @@ import { IMG_CDN_URL, LOGO_URL } from "../Utils/constants";
 import { MenuShimmer } from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestraurantMenu from "../Utils/useRestraurantMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestraurantMenu(resId);
+  console.log("resInfo", resInfo);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    //Dispatch an action
+    dispatch(addItem(item));
+  };
 
   // useEffect(() => {
   //   fetchMenu();
@@ -99,7 +108,13 @@ const RestaurantMenu = () => {
                         alt={item?.card?.info?.name}
                       />
                     )}
-                    <button className="add-btn"> ADD +</button>
+                    <button
+                      className="add-btn"
+                      onClick={() => handleAddItem(item)}
+                    >
+                      {" "}
+                      ADD +
+                    </button>
                   </div>
                 </div>
               )
