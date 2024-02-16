@@ -11,6 +11,7 @@ import RestaurantMenu from "./src/components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./src/Utils/appStore";
 import Cart from "./src/components/Cart";
+import Footer from "./src/components/Footer";
 
 const Grocery = lazy(() => import("./src/components/Grocery"));
 
@@ -32,6 +33,7 @@ const AppLayout = () => {
         <Header />
         {/* if path / */}
         <Outlet />
+        <Footer />
       </div>
     </Provider>
   );
